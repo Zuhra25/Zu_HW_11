@@ -1,10 +1,13 @@
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) {
-        //task1();
-        //task2();
+        LocalDate date = LocalDate.now();
+        task1();
+        task2();
         task3();
+        task4();
     }
-
     public static void checkLeapYear(int checkYear) {
         boolean leapYear = false;
         if (checkYear % 4 == 0 && checkYear % 400 == 0)
@@ -17,18 +20,12 @@ public class Main {
         else
             System.out.println(checkYear + " год НЕ является високосным");
     }
-
     public static void task1() {
         System.out.println("Задача 1:");
-        //Реализуйте метод, который получает в качестве параметра год,
-        // проверяет, является ли он високосным, и выводит результат в консоль.
-
-        int year = 2100;
+        int year = 2300;
         checkLeapYear(year);
-        //printYear();
-
     }
-
+////////////////
     public static void osAndYear(int os, int year) {
         int clientDeviceYear = 2015;
         switch (os) {
@@ -50,15 +47,16 @@ public class Main {
                 }
         }
     }
-
     public static void task2() {
+
         System.out.println("Задача 2:");
 
         int clientOS = 0;
-        int clientDevice = 2000;
+        int clientDevice = LocalDate.now().getYear();
+        System.out.printf("устройство клиента %s года%n", clientDevice);
         osAndYear(clientOS, clientDevice);
     }
-
+////////////////
     public static int deliveryDay(int distance) {
         int deliveryDay = 1;
         if (distance <= 20) {
@@ -70,8 +68,6 @@ public class Main {
         } else deliveryDay = 0;
         return deliveryDay;
     }
-
-
     public static void task3() {
         System.out.println("Задача 3: ");
         int deliveryDistance = 125;
@@ -86,4 +82,30 @@ public class Main {
                 System.out.println("Потребуется дней: " + deliveryDay(deliveryDistance));
         }
     }
+////////////////
+    public static boolean LeapYear(int checkYear) {
+        boolean leapYear = false;
+        if (checkYear % 4 == 0 && checkYear % 400 == 0)
+            leapYear = true;
+        else if (checkYear % 100 == 0) {
+            leapYear = false;
+        } else leapYear = false;
+        return leapYear;
+    }
+
+    public static void printYear(boolean whichYear, int presentYear) {
+        if (whichYear)
+            System.out.println(presentYear + " год является високосным");
+        else
+            System.out.println(presentYear + " год НЕ является високосным");
+    }
+
+    public static void task4() {
+        System.out.println("Задача 1 доп решение:");
+        int year = 2300;
+        boolean b = LeapYear(year);
+        printYear(b, year);
+    }
+
+
 }
