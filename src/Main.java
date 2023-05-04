@@ -4,6 +4,7 @@ public class Main {
         //task2();
         task3();
     }
+
     public static void checkLeapYear(int checkYear) {
         boolean leapYear = false;
         if (checkYear % 4 == 0 && checkYear % 400 == 0)
@@ -58,8 +59,31 @@ public class Main {
         osAndYear(clientOS, clientDevice);
     }
 
+    public static int deliveryDay(int distance) {
+        int deliveryDay = 1;
+        if (distance <= 20) {
+            deliveryDay += 0;
+        } else if (distance > 20 && distance <= 60) {
+            deliveryDay += 1;
+        } else if (distance > 60 && distance <= 100) {
+            deliveryDay += 2;
+        } else deliveryDay = 0;
+        return deliveryDay;
+    }
+
+
     public static void task3() {
         System.out.println("Задача 3: ");
+        int deliveryDistance = 125;
 
+        switch (deliveryDay(deliveryDistance)) {
+            case 0:
+                System.out.println("Свыше 100 км доставки нет.");
+                break;
+            case 1:
+            case 2:
+            case 3:
+                System.out.println("Потребуется дней: " + deliveryDay(deliveryDistance));
+        }
     }
 }
