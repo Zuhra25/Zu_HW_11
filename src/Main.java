@@ -10,7 +10,7 @@ public class Main {
     }
     public static void checkLeapYear(int checkYear) {
         boolean leapYear = false;
-        if (checkYear % 4 == 0 && checkYear % 400 == 0)
+        if (checkYear % 4 == 0 || checkYear % 400 == 0)
             leapYear = true;
         else if (checkYear % 100 == 0) {
             leapYear = false;
@@ -22,7 +22,7 @@ public class Main {
     }
     public static void task1() {
         System.out.println("Задача 1:");
-        int year = 2300;
+        int year = 2008;
         checkLeapYear(year);
     }
 ////////////////
@@ -85,7 +85,7 @@ public class Main {
 ////////////////
     public static boolean LeapYear(int checkYear) {
         boolean leapYear = false;
-        if (checkYear % 4 == 0 && checkYear % 400 == 0)
+        if (checkYear % 4 == 0 || checkYear % 400 == 0)
             leapYear = true;
         else if (checkYear % 100 == 0) {
             leapYear = false;
@@ -102,7 +102,7 @@ public class Main {
 
     public static void task4() {
         System.out.println("Задача 1 доп решение:");
-        int year = 2300;
+        int year = 2008;
         boolean b = LeapYear(year);
         printYear(b, year);
     }
